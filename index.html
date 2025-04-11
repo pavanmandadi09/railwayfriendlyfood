@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Railway Friendly Food</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Auth Section -->
+        <div id="auth-section" class="section">
+            <div class="container">
+                <div class="logo">
+                    <h1>Railway Friendly Food</h1>
+                    <p>Delicious meals for your journey</p>
+                </div>
+                
+                <div class="auth-container">
+                    <div class="auth-options">
+                        <button id="login-option" class="active">Login</button>
+                        <button id="signup-option">Sign Up</button>
+                    </div>
+                    
+                    <div id="login-form" class="auth-form">
+                        <h2>Welcome Back!</h2>
+                        <form>
+                            <div class="form-group">
+                                <label for="login-email">Email</label>
+                                <input type="email" id="login-email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="login-password">Password</label>
+                                <input type="password" id="login-password" required>
+                            </div>
+                            <button type="submit" id="login-button">Login</button>
+                        </form>
+                        <p class="form-footer">Forgot password? <a href="#">Reset here</a></p>
+                    </div>
+                    
+                    <div id="signup-form" class="auth-form" style="display: none;">
+                        <h2>Create Account</h2>
+                        <form>
+                            <div class="form-group">
+                                <label for="signup-name">Full Name</label>
+                                <input type="text" id="signup-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="signup-email">Email</label>
+                                <input type="email" id="signup-email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="signup-phone">Phone Number</label>
+                                <input type="tel" id="signup-phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="signup-password">Password</label>
+                                <input type="password" id="signup-password" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="signup-confirm-password">Confirm Password</label>
+                                <input type="password" id="signup-confirm-password" required>
+                            </div>
+                            <button type="submit" id="signup-button">Sign Up</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main App Section (Hidden initially) -->
+        <div id="main-app" class="section" style="display: none;">
+            <header>
+                <div class="container">
+                    <div class="logo">
+                        <h1>Railway Friendly Food</h1>
+                    </div>
+                    <nav>
+                        <ul>
+                            <li><a href="#" class="category-link" data-category="pre-order">Pre Order</a></li>
+                            <li><a href="#" class="category-link" data-category="order-now">Order Now</a></li>
+                            <li><a href="#" class="category-link" data-category="subscription">Subscription</a></li>
+                            <li class="user-profile">
+                                <a href="#" id="user-profile-link">
+                                    <i class="fas fa-user-circle"></i>
+                                    <span id="username">User</span>
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a href="#">Profile</a>
+                                    <a href="#">Orders</a>
+                                    <a href="#">Settings</a>
+                                    <a href="#" id="logout-button">Logout</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+            
+            <main>
+                <div class="container">
+                    <!-- Home Section -->
+                    <div id="home-section" class="content-section">
+                        <div class="hero">
+                            <h2>Delicious Food for Your Railway Journey</h2>
+                            <p>Order fresh and tasty meals for your train journey across India</p>
+                            <div class="category-cards">
+                                <div class="category-card" data-category="pre-order">
+                                    <i class="fas fa-clock"></i>
+                                    <h3>Pre Order</h3>
+                                    <p>Plan ahead and pre-order your meals for your upcoming journey</p>
+                                    <button class="category-button" data-category="pre-order">Pre Order Now</button>
+                                </div>
+                                <div class="category-card" data-category="order-now">
+                                    <i class="fas fa-utensils"></i>
+                                    <h3>Order Now</h3>
+                                    <p>Hungry during your journey? Order food to be delivered at the next station</p>
+                                    <button class="category-button" data-category="order-now">Order Now</button>
+                                </div>
+                                <div class="category-card" data-category="subscription">
+                                    <i class="fas fa-crown"></i>
+                                    <h3>Premium Subscription</h3>
+                                    <p>Get exclusive discounts and priority service with our premium membership</p>
+                                    <button class="category-button" data-category="subscription">Subscribe Now</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="features">
+                            <h2>Why Choose Railway Friendly Food?</h2>
+                            <div class="feature-cards">
+                                <div class="feature-card">
+                                    <i class="fas fa-hamburger"></i>
+                                    <h3>Fresh Food</h3>
+                                    <p>Freshly prepared meals from top-rated restaurants</p>
+                                </div>
+                                <div class="feature-card">
+                                    <i class="fas fa-shipping-fast"></i>
+                                    <h3>On-Time Delivery</h3>
+                                    <p>Delivered right to your seat at your chosen station</p>
+                                </div>
+                                <div class="feature-card">
+                                    <i class="fas fa-leaf"></i>
+                                    <h3>Quality Ingredients</h3>
+                                    <p>Healthy and hygienic food prepared with care</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Pre Order Section -->
+                    <div id="pre-order-section" class="content-section" style="display: none;">
+                        <h2>Pre Order Your Meal</h2>
+                        <p>Plan ahead and pre-order your meal for your upcoming journey</p>
+                        
+                        <div class="journey-details">
+                            <h3>Journey Details</h3>
+                            <form id="pre-order-form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="pre-order-train">Train Name & Number</label>
+                                        <select id="pre-order-train" required>
+                                            <option value="">Select Train</option>
+                                            <option value="12301-Howrah Rajdhani Express (12301)">Howrah Rajdhani Express (12301)</option>
+                                            <option value="12951-Mumbai Rajdhani Express (12951)">Mumbai Rajdhani Express (12951)</option>
+                                            <option value="12259-Sealdah Duronto Express (12259)">Sealdah Duronto Express (12259)</option>
+                                            <option value="12001-Shatabdi Express (12001)">Shatabdi Express (12001)</option>
+                                            <option value="12309-Rajendra Nagar Rajdhani Express (12309)">Rajendra Nagar Rajdhani Express (12309)</option>
+                                            <option value="12269-Chennai Central Duronto Express (12269)">Chennai Central Duronto Express (12269)</option>
+                                            <option value="12559-Shiv Ganga Express (12559)">Shiv Ganga Express (12559)</option>
+                                            <option value="12953-August Kranti Rajdhani Express (12953)">August Kranti Rajdhani Express (12953)</option>
+                                            <option value="12802-Purushottam Express (12802)">Purushottam Express (12802)</option>
+                                            <option value="12723-Telangana Express (12723)">Telangana Express (12723)</option>
+                                            <option value="12134-Mangla Lakshadweep Express (12134)">Mangla Lakshadweep Express (12134)</option>
+                                            <option value="12626-Kerala Express (12626)">Kerala Express (12626)</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="pre-order-date">Date of Journey</label>
+                                        <input type="date" id="pre-order-date" required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="pre-order-boarding">Boarding Station</label>
+                                        <select id="pre-order-boarding" required>
+                                            <option value="">Select Station</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="pre-order-destination">Destination Station</label>
+                                        <select id="pre-order-destination" required>
+                                            <option value="">Select Station</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="pre-order-time">Time of Journey</label>
+                                        <input type="time" id="pre-order-time" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="pre-order-coach">Coach & Seat Number</label>
+                                        <input type="text" id="pre-order-coach" placeholder="e.g. B4-32" required>
+                                    </div>
+                                </div>
+                                <button type="submit" id="pre-order-journey-submit">Check Availability</button>
+                            </form>
+                        </div>
+                        
+                        <div id="pre-order-food-selection" style="display: none;">
+                            <h3>Select Food Items</h3>
+                            <div class="food-filters">
+                                <button class="food-filter active" data-filter="all">All</button>
+                                <button class="food-filter" data-filter="veg">Vegetarian</button>
+                                <button class="food-filter" data-filter="non-veg">Non-Vegetarian</button>
+                                <button class="food-filter" data-filter="breakfast">Breakfast</button>
+                                <button class="food-filter" data-filter="lunch">Lunch</button>
+                                <button class="food-filter" data-filter="dinner">Dinner</button>
+                                <button class="food-filter" data-filter="snacks">Snacks</button>
+                            </div>
+                            
+                            <div class="food-items-container">
+                                <!-- Food items will be loaded dynamically -->
+                            </div>
+                            
+                            <div id="pre-order-cart" class="cart-summary">
+                                <h3>Your Order</h3>
+                                <div id="pre-order-cart-items" class="cart-items">
+                                    <p class="empty-cart">Your cart is empty</p>
+                                </div>
+                                <div class="cart-total">
+                                    <p>Total: <span id="pre-order-cart-total">₹0.00</span></p>
+                                    <button id="pre-order-checkout" disabled>Proceed to Checkout</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Order Now Section -->
+                    <div id="order-now-section" class="content-section" style="display: none;">
+                        <h2>Order Food Now</h2>
+                        <p>Hungry during your journey? Get food delivered at the next available station</p>
+                        
+                        <div class="journey-details">
+                            <h3>Your Current Journey</h3>
+                            <form id="order-now-form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="order-now-train">Train Name & Number</label>
+                                        <select id="order-now-train" required>
+                                            <option value="">Select Train</option>
+                                            <option value="12301-Howrah Rajdhani Express (12301)">Howrah Rajdhani Express (12301)</option>
+                                            <option value="12951-Mumbai Rajdhani Express (12951)">Mumbai Rajdhani Express (12951)</option>
+                                            <option value="12259-Sealdah Duronto Express (12259)">Sealdah Duronto Express (12259)</option>
+                                            <option value="12001-Shatabdi Express (12001)">Shatabdi Express (12001)</option>
+                                            <option value="12309-Rajendra Nagar Rajdhani Express (12309)">Rajendra Nagar Rajdhani Express (12309)</option>
+                                            <option value="12269-Chennai Central Duronto Express (12269)">Chennai Central Duronto Express (12269)</option>
+                                            <option value="12559-Shiv Ganga Express (12559)">Shiv Ganga Express (12559)</option>
+                                            <option value="12953-August Kranti Rajdhani Express (12953)">August Kranti Rajdhani Express (12953)</option>
+                                            <option value="12802-Purushottam Express (12802)">Purushottam Express (12802)</option>
+                                            <option value="12723-Telangana Express (12723)">Telangana Express (12723)</option>
+                                            <option value="12134-Mangla Lakshadweep Express (12134)">Mangla Lakshadweep Express (12134)</option>
+                                            <option value="12626-Kerala Express (12626)">Kerala Express (12626)</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="order-now-current">Current Station</label>
+                                        <select id="order-now-current" required>
+                                            <option value="">Select Station</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="order-now-destination">Destination Station</label>
+                                        <select id="order-now-destination" required>
+                                            <option value="">Select Station</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="order-now-coach">Coach & Seat Number</label>
+                                        <input type="text" id="order-now-coach" placeholder="e.g. B4-32" required>
+                                    </div>
+                                </div>
+                                <button type="submit" id="order-now-journey-submit">Find Restaurants</button>
+                            </form>
+                        </div>
+                        
+                        <div id="order-now-restaurants" style="display: none;">
+                            <h3>Available Restaurants</h3>
+                            <div class="restaurant-list">
+                                <!-- Restaurants will be loaded dynamically -->
+                            </div>
+                        </div>
+                        
+                        <div id="order-now-food-selection" style="display: none;">
+                            <h3 id="restaurant-name">Restaurant Menu</h3>
+                            <div class="food-filters">
+                                <button class="food-filter active" data-filter="all">All</button>
+                                <button class="food-filter" data-filter="veg">Vegetarian</button>
+                                <button class="food-filter" data-filter="non-veg">Non-Vegetarian</button>
+                                <button class="food-filter" data-filter="breakfast">Breakfast</button>
+                                <button class="food-filter" data-filter="lunch">Lunch</button>
+                                <button class="food-filter" data-filter="dinner">Dinner</button>
+                                <button class="food-filter" data-filter="snacks">Snacks</button>
+                            </div>
+                            
+                            <div class="food-items-container">
+                                <!-- Food items will be loaded dynamically -->
+                            </div>
+                            
+                            <div id="order-now-cart" class="cart-summary">
+                                <h3>Your Order</h3>
+                                <div id="order-now-cart-items" class="cart-items">
+                                    <p class="empty-cart">Your cart is empty</p>
+                                </div>
+                                <div class="cart-total">
+                                    <p>Total: <span id="order-now-cart-total">₹0.00</span></p>
+                                    <button id="order-now-checkout" disabled>Proceed to Checkout</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Subscription Section -->
+                    <div id="subscription-section" class="content-section" style="display: none;">
+                        <h2>Premium Subscription</h2>
+                        <p>Get exclusive benefits and discounts with our premium subscription</p>
+                        
+                        <div class="subscription-plans">
+                            <div class="plan-card">
+                                <div class="plan-header">
+                                    <h3>Monthly</h3>
+                                    <p class="plan-price">₹299</p>
+                                    <p class="plan-billing">per month</p>
+                                </div>
+                                <div class="plan-features">
+                                    <ul>
+                                        <li><i class="fas fa-check"></i> 10% discount on all orders</li>
+                                        <li><i class="fas fa-check"></i> Priority delivery</li>
+                                        <li><i class="fas fa-check"></i> No cancellation charges</li>
+                                        <li><i class="fas fa-check"></i> 24/7 customer support</li>
+                                    </ul>
+                                </div>
+                                <button class="plan-button" data-plan="monthly">Subscribe</button>
+                            </div>
+                            <div class="plan-card featured">
+                                <div class="plan-tag">Popular</div>
+                                <div class="plan-header">
+                                    <h3>Quarterly</h3>
+                                    <p class="plan-price">₹799</p>
+                                    <p class="plan-billing">for 3 months</p>
+                                </div>
+                                <div class="plan-features">
+                                    <ul>
+                                        <li><i class="fas fa-check"></i> 10% discount on all orders</li>
+                                        <li><i class="fas fa-check"></i> Priority delivery</li>
+                                        <li><i class="fas fa-check"></i> No cancellation charges</li>
+                                        <li><i class="fas fa-check"></i> 24/7 customer support</li>
+                                        <li><i class="fas fa-check"></i> 1 free delivery per month</li>
+                                    </ul>
+                                </div>
+                                <button class="plan-button" data-plan="quarterly">Subscribe</button>
+                            </div>
+                            <div class="plan-card">
+                                <div class="plan-header">
+                                    <h3>Annual</h3>
+                                    <p class="plan-price">₹2499</p>
+                                    <p class="plan-billing">per year</p>
+                                </div>
+                                <div class="plan-features">
+                                    <ul>
+                                        <li><i class="fas fa-check"></i> 10% discount on all orders</li>
+                                        <li><i class="fas fa-check"></i> Priority delivery</li>
+                                        <li><i class="fas fa-check"></i> No cancellation charges</li>
+                                        <li><i class="fas fa-check"></i> 24/7 customer support</li>
+                                        <li><i class="fas fa-check"></i> 2 free deliveries per month</li>
+                                        <li><i class="fas fa-check"></i> Exclusive early access to offers</li>
+                                    </ul>
+                                </div>
+                                <button class="plan-button" data-plan="annual">Subscribe</button>
+                            </div>
+                        </div>
+                        
+                        <div id="premium-journey-form" style="display: none;">
+                            <h3>Order with Premium Benefits</h3>
+                            <form id="premium-order-form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="premium-train">Train Name & Number</label>
+                                        <select id="premium-train" required>
+                                            <option value="">Select Train</option>
+                                            <option value="12301-Howrah Rajdhani Express (12301)">Howrah Rajdhani Express (12301)</option>
+                                            <option value="12951-Mumbai Rajdhani Express (12951)">Mumbai Rajdhani Express (12951)</option>
+                                            <option value="12259-Sealdah Duronto Express (12259)">Sealdah Duronto Express (12259)</option>
+                                            <option value="12001-Shatabdi Express (12001)">Shatabdi Express (12001)</option>
+                                            <option value="12309-Rajendra Nagar Rajdhani Express (12309)">Rajendra Nagar Rajdhani Express (12309)</option>
+                                            <option value="12269-Chennai Central Duronto Express (12269)">Chennai Central Duronto Express (12269)</option>
+                                            <option value="12559-Shiv Ganga Express (12559)">Shiv Ganga Express (12559)</option>
+                                            <option value="12953-August Kranti Rajdhani Express (12953)">August Kranti Rajdhani Express (12953)</option>
+                                            <option value="12802-Purushottam Express (12802)">Purushottam Express (12802)</option>
+                                            <option value="12723-Telangana Express (12723)">Telangana Express (12723)</option>
+                                            <option value="12134-Mangla Lakshadweep Express (12134)">Mangla Lakshadweep Express (12134)</option>
+                                            <option value="12626-Kerala Express (12626)">Kerala Express (12626)</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="premium-date">Date of Journey</label>
+                                        <input type="date" id="premium-date" required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="premium-boarding">Boarding Station</label>
+                                        <select id="premium-boarding" required>
+                                            <option value="">Select Station</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="premium-destination">Destination Station</label>
+                                        <select id="premium-destination" required>
+                                            <option value="">Select Station</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="premium-time">Time of Journey</label>
+                                        <input type="time" id="premium-time" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="premium-coach">Coach & Seat Number</label>
+                                        <input type="text" id="premium-coach" placeholder="e.g. B4-32" required>
+                                    </div>
+                                </div>
+                                <button type="submit" id="premium-journey-submit">Check Premium Restaurants</button>
+                            </form>
+                        </div>
+                        
+                        <div id="premium-restaurants" style="display: none;">
+                            <h3>Premium Partner Restaurants</h3>
+                            <div class="restaurant-list premium">
+                                <!-- Premium restaurants will be loaded dynamically -->
+                            </div>
+                        </div>
+                        
+                        <div id="premium-food-selection" style="display: none;">
+                            <h3 id="premium-restaurant-name">Premium Restaurant Menu</h3>
+                            <div class="premium-badge">
+                                <i class="fas fa-crown"></i> Premium Member Discount: 10%
+                            </div>
+                            
+                            <div class="food-filters">
+                                <button class="food-filter active" data-filter="all">All</button>
+                                <button class="food-filter" data-filter="veg">Vegetarian</button>
+                                <button class="food-filter" data-filter="non-veg">Non-Vegetarian</button>
+                                <button class="food-filter" data-filter="breakfast">Breakfast</button>
+                                <button class="food-filter" data-filter="lunch">Lunch</button>
+                                <button class="food-filter" data-filter="dinner">Dinner</button>
+                                <button class="food-filter" data-filter="snacks">Snacks</button>
+                            </div>
+                            
+                            <div class="food-items-container">
+                                <!-- Food items will be loaded dynamically -->
+                            </div>
+                            
+                            <div id="premium-cart" class="cart-summary premium">
+                                <h3>Your Premium Order</h3>
+                                <div id="premium-cart-items" class="cart-items">
+                                    <p class="empty-cart">Your cart is empty</p>
+                                </div>
+                                <div class="cart-total">
+                                    <p>Subtotal: <span id="premium-cart-subtotal">₹0.00</span></p>
+                                    <p>Premium Discount (10%): <span id="premium-cart-discount">-₹0.00</span></p>
+                                    <p class="total">Total: <span id="premium-cart-total">₹0.00</span></p>
+                                    <button id="premium-checkout" disabled>Proceed to Checkout</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Checkout Section -->
+                    <div id="checkout-section" class="content-section" style="display: none;">
+                        <h2>Checkout</h2>
+                        <p>Complete your order by providing delivery and payment details</p>
+                        
+                        <div class="checkout-container">
+                            <div class="checkout-summary">
+                                <h3>Order Summary</h3>
+                                <div id="checkout-items">
+                                    <!-- Order items will be loaded dynamically -->
+                                </div>
+                                <div class="order-totals">
+                                    <p>Subtotal: <span id="checkout-subtotal">₹0.00</span></p>
+                                    <p>Delivery Fee: <span id="checkout-delivery">₹30.00</span></p>
+                                    <p id="checkout-discount-row" style="display: none;">Discount: <span id="checkout-discount">-₹0.00</span></p>
+                                    <p class="total">Total: <span id="checkout-total">₹0.00</span></p>
+                                </div>
+                            </div>
+                            
+                            <div class="checkout-form">
+                                <h3>Payment Details</h3>
+                                <form id="payment-form">
+                                    <div class="form-group">
+                                        <label for="payment-method">Payment Method</label>
+                                        <div class="payment-methods">
+                                            <label class="payment-method">
+                                                <input type="radio" name="payment" value="card" checked>
+                                                <span class="method-icon"><i class="fas fa-credit-card"></i></span>
+                                                <span class="method-name">Credit/Debit Card</span>
+                                            </label>
+                                            <label class="payment-method">
+                                                <input type="radio" name="payment" value="upi">
+                                                <span class="method-icon"><i class="fas fa-mobile-alt"></i></span>
+                                                <span class="method-name">UPI</span>
+                                            </label>
+                                            <label class="payment-method">
+                                                <input type="radio" name="payment" value="wallet">
+                                                <span class="method-icon"><i class="fas fa-wallet"></i></span>
+                                                <span class="method-name">Wallet</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div id="card-payment" class="payment-details">
+                                        <div class="form-group">
+                                            <label for="card-number">Card Number</label>
+                                            <input type="text" id="card-number" placeholder="1234 5678 9012 3456" required>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="card-expiry">Expiry Date</label>
+                                                <input type="text" id="card-expiry" placeholder="MM/YY" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="card-cvv">CVV</label>
+                                                <input type="text" id="card-cvv" placeholder="123" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="card-name">Name on Card</label>
+                                            <input type="text" id="card-name" placeholder="John Doe" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div id="upi-payment" class="payment-details" style="display: none;">
+                                        <div class="form-group">
+                                            <label for="upi-id">UPI ID</label>
+                                            <input type="text" id="upi-id" placeholder="name@upi" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div id="wallet-payment" class="payment-details" style="display: none;">
+                                        <div class="form-group">
+                                            <label for="wallet-type">Select Wallet</label>
+                                            <select id="wallet-type" required>
+                                                <option value="">Select Wallet</option>
+                                                <option value="paytm">Paytm</option>
+                                                <option value="phonepe">PhonePe</option>
+                                                <option value="amazonpay">Amazon Pay</option>
+                                                <option value="freecharge">Freecharge</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="wallet-number">Mobile Number</label>
+                                            <input type="tel" id="wallet-number" placeholder="10-digit number" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="special-instructions">Special Instructions (Optional)</label>
+                                        <textarea id="special-instructions" placeholder="Any special instructions or food preferences"></textarea>
+                                    </div>
+                                    
+                                    <button type="submit" id="place-order-button">Place Order</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Order Success Section -->
+                    <div id="order-success-section" class="content-section" style="display: none;">
+                        <div class="success-container">
+                            <div class="success-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <h2>Order Placed Successfully!</h2>
+                            <p>Your order has been placed successfully. You will receive a confirmation shortly.</p>
+                            <div class="order-details">
+                                <h3>Order Details</h3>
+                                <p>Order ID: <span id="success-order-id">RFF12345</span></p>
+                                <p>Delivery Station: <span id="success-station">New Delhi Railway Station</span></p>
+                                <p>Expected Delivery Time: <span id="success-time">12:45 PM</span></p>
+                            </div>
+                            <div class="success-buttons">
+                                <button id="track-order-button">Track Order</button>
+                                <button id="continue-shopping-button">Continue Shopping</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            
+            <footer>
+                <div class="container">
+                    <div class="footer-content">
+                        <div class="footer-section">
+                            <h3>About Us</h3>
+                            <p>Railway Friendly Food provides delicious meals for train journeys across India. We partner with top restaurants to deliver fresh food right to your seat.</p>
+                        </div>
+                        <div class="footer-section">
+                            <h3>Quick Links</h3>
+                            <ul>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">Pre Order</a></li>
+                                <li><a href="#">Order Now</a></li>
+                                <li><a href="#">Premium Subscription</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-section">
+                            <h3>Contact</h3>
+                            <p><i class="fas fa-phone"></i> +91 9876543210</p>
+                            <p><i class="fas fa-envelope"></i> support@railwayfriendlyfood.com</p>
+                            <div class="social-icons">
+                                <a href="#"><i class="fab fa-facebook"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-bottom">
+                        <p>&copy; 2025 Railway Friendly Food. All rights reserved.</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
